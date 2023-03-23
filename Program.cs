@@ -9,12 +9,12 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        
+
 
         enum Category
         {
-            HR ,
-            IT,            
+            HR,
+            IT,
             Payroll
         }
 
@@ -22,11 +22,11 @@ namespace ConsoleApp1
         {
             return emp.ID >= 1 && emp.ID < 4;
         }
-        
+
         public static async void ConsumeWebAPI()
         {
             using (var client = new HttpClient())
-            {            
+            {
                 client.BaseAddress = new Uri("https://mocki.io/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -35,7 +35,7 @@ namespace ConsoleApp1
                 if (response.IsSuccessStatusCode)
                 {
                     var department = await response.Content.ReadFromJsonAsync<List<GitHubRelease>>();
-                    
+
                 }
                 else
                 {
@@ -48,7 +48,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 #if !DEBUG
-#region Join table
+            #region Join table
                             var JoinMultipleDSUsingQS =
                                 (
                                 //Data Source1 i.e. Employee
@@ -75,9 +75,9 @@ namespace ConsoleApp1
                                 Console.WriteLine($"ID = {employee.ID}, Name = {employee.EmployeeName}, Department = {employee.DepartmentName}, Addres = {employee.AddressLine}");
                             }
 
-#endregion
+            #endregion
 
-#region check record exists
+            #region check record exists
 
                             var checkQuery = from emp in Employee.GetAllEmployees()
                                              where emp.ID >= 1
@@ -85,9 +85,9 @@ namespace ConsoleApp1
 
                             Console.WriteLine($"{checkQuery.Any()}");
 
-#endregion
+            #endregion
 
-#region OR and Operator
+            #region OR and Operator
                             var orLinq =
                                 (
                                 //Data Source1 i.e. Employee
@@ -105,9 +105,9 @@ namespace ConsoleApp1
                             {
                                 Console.WriteLine($"ID = {employee.ID}, Name = {employee.EmployeeName}, Address = {employee.AddressLine}");
                             }
-#endregion
+            #endregion
 
-#region multiple where
+            #region multiple where
                             var multiplewhereLinq  = from emp in Employee.GetAllEmployees()
                                              where emp.ID >= 1
                                              where emp.ID < 4
@@ -117,9 +117,9 @@ namespace ConsoleApp1
                             {
                                 Console.WriteLine($"ID = {employee.ID}, Name = {employee.Name}, Address = {employee.AddressId}");
                             }
-#endregion
+            #endregion
             
-#region multiple where clause method
+            #region multiple where clause method
                         var whereClauseLinq = from emp in Employee.GetAllEmployees()
                                             where GetEmployeeIdLessThanFour(emp)
                                             select emp;
@@ -128,17 +128,17 @@ namespace ConsoleApp1
                         {
                             Console.WriteLine($"ID = {employee.ID}, Name = {employee.Name}, Address = {employee.AddressId}");
                         }
-#endregion
+            #endregion
 
-#region get top 3 highest pay
+            #region get top 3 highest pay
             var highestPayLinq = Employee.GetAllEmployees().OrderByDescending(i => i.Salary).ThenBy(i => i.Name).Take(3).ToList();
             foreach (var employee in highestPayLinq)
             {
                 Console.WriteLine($"ID = {employee.ID}, Name = {employee.Name}, Salary = {employee.Salary}");
             }
-#endregion
+            #endregion
 
-#region custom order 
+            #region custom order 
             var customSortLinq = Department.GetAllDepartments()
                 .OrderBy(x => x.Name == Category.HR.ToString())
                 .OrderBy(x => x.Name == Category.IT.ToString())
@@ -151,16 +151,16 @@ namespace ConsoleApp1
             { 
                 Console.WriteLine(categoryName);
             }
-#endregion
+            #endregion
 
-#region Show 6 First and show the rest in order
+            #region Show 6 First and show the rest in order
             int[] i = new int[] { 2,1,3,5,6,8,7,10 };
 
             var sorting = i.OrderByDescending(x => x == 6).ThenBy(x => x).ToList();
 
-#endregion
+            #endregion
 
-#region Average
+            #region Average
             i = new int[] { 2, 1, 3, 5, 6, 8, 7, 10 };
 
             //method linq
@@ -171,7 +171,7 @@ namespace ConsoleApp1
                    where x > 5
                    select x).Average(x => x);
 
-#endregion
+            #endregion
 #endif
 
 
