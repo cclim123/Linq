@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "rTT1rUDNCTFpqE1h5lml9UoI8bMQnHhauVFpgO4SWbPddm4mNie74HzlllvqUCpCf+CAEUfiyLVaqHZP0lpoMQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\lim_c\\Desktop\\Linq\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lim_c\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\lim_c\\.nuget\\packages\\system.net.http.json\\3.2.1\\system.net.http.json.3.2.1.nupkg.sha512",
+    "C:\\Users\\lim_c\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.7.1\\system.runtime.compilerservices.unsafe.4.7.1.nupkg.sha512",
+    "C:\\Users\\lim_c\\.nuget\\packages\\system.text.encodings.web\\4.7.1\\system.text.encodings.web.4.7.1.nupkg.sha512",
+    "C:\\Users\\lim_c\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
